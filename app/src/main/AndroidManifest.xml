@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.weatherwide">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".SettingsActivity"
+            android:label="@string/settings_lable"
+            android:theme="@style/ActionBarTheme"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".SearchActivity"
+            android:label="@string/search_city"
+            android:theme="@style/ActionBarTheme" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

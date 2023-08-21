@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="64dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:id="@+id/forecast_icon"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Day"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif"
+        android:id="@+id/day_text_view"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Max Temperature"
+        android:textColor="@color/cool_black"
+        android:fontFamily="sans-serif"
+        android:id="@+id/max_temperature"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Min Temperature"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif"
+        android:id="@+id/min_temperature"/>
+
+</LinearLayout>

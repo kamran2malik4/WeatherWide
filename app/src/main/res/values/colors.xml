@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00457E</color>
+    <color name="colorPrimaryDark">#02315E</color>
+    <color name="colorAccent">#806491</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="cool_black">#02315E</color>
+    <color name="dark_cerulean">#00457E</color>
+    <color name="lapis_lazuli">#2F70AF</color>
+    <color name="english_lavendar">#B9848C</color>
+    <color name="french_lilac">#806491</color>
+</resources>

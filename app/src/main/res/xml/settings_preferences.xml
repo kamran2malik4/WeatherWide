@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ListPreference
+        android:title="@string/temperature_unit_lable"
+        android:key="@string/temperature_unit_key"
+        android:entries="@array/temperature_units_entries"
+        android:entryValues="@array/temperature_units_entries_data"
+        android:defaultValue="0"/>
+
+    <ListPreference
+        android:title="@string/speed_unit_lable"
+        android:key="@string/speed_unit_key"
+        android:entries="@array/speed_units_entries"
+        android:entryValues="@array/speed_units_entries_data"
+        android:defaultValue="0"/>
+
+</PreferenceScreen>
