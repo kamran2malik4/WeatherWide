@@ -1,18 +1,9 @@
-package com.example.weatherwide.CurrentAndForcastWeather;
+package com.example.weatherwide;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.preference.PreferenceManager;
 import android.util.Log;
-
-import com.example.weatherwide.R;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,70 +12,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
-public class QueryUtilsCurrentAndForecastWeather {
-    private static String getTempUnit(SharedPreferences preferences){
-        String unitsList = preferences.getString("temperature_unit", "-1");
-        int index = (Integer) Integer.parseInt(unitsList);
-        if(index >= 1 && index < 2){
-            return "temp_f";
-        }
-        else{
-            return "temp_c";
-        }
-    }
+public final class QueryUtilsWeatherApi {
 
-    public static ArrayList<CurrentAndForecastWeatherData> extractCurrentAndForecastWeatherData(String url, Context context){
-        ArrayList<CurrentAndForecastWeatherData> data = new ArrayList<>();
-        String rootObject = fetchAndRetrieveData(url);
-
-        if(rootObject == null){
-            return null;
-        }
-
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        String tempUnit = getTempUnit(preferences);
-
-
-        JSONObject root = null;
-
-        try {
-            root = new JSONObject(rootObject);
-            JSONObject current = root.getJSONObject("current");
-            JSONObject forecast = root.getJSONObject("forecast");
-            JSONArray forecastDay = forecast.getJSONArray("forecastday");
-            JSONObject condition = current.getJSONObject("condition");
-            int temperature = 0;
-            String text = null;
-            String currentIconUrl = null;
-            temperature = current.getInt(tempUnit);
-            text = condition.getString("text");
-            currentIconUrl = condition.getString("icon");
-            Bitmap icon = extractIconFromUrl(currentIconUrl);
-            data.add(new CurrentAndForecastWeatherData(text, temperature, icon));
-            for(int i = 0; i < forecastDay.length(); i++){
-                long date = 0;
-                int maxTemp = 0;
-                int minTemp = 0;
-                JSONObject currentDay = forecastDay.getJSONObject(i);
-                date = currentDay.getLong("date_epoch");
-                JSONObject day = currentDay.getJSONObject("day");
-                maxTemp = day.getInt("max" + tempUnit);
-                minTemp = day.getInt("min" + tempUnit);
-                JSONObject dayCondition = day.getJSONObject("condition");
-                String iconUrl = dayCondition.getString("icon");
-                Bitmap dayIcon = extractIconFromUrl(iconUrl);
-                data.add(new CurrentAndForecastWeatherData(dayIcon, date, maxTemp, minTemp));
-            }
-        }
-        catch (JSONException e){
-            e.printStackTrace();
-        }
-
-        return data;
-    }
-    private static Bitmap extractIconFromUrl(String iconUrl){
+    public static Bitmap extractIconFromUrl(String iconUrl){
         Bitmap icon = null;
 
         URL url = null;
@@ -99,7 +30,8 @@ public class QueryUtilsCurrentAndForecastWeather {
 
         return icon;
     }
-    private static String fetchAndRetrieveData(String web_url){
+
+    public static String fetchAndRetrieveData(String web_url){
         Log.i("Request", "fetchAndRetrieveData");
         String rootObject = null;
         URL url = createURLObject(web_url);

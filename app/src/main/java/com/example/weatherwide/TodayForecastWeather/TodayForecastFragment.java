@@ -2,10 +2,7 @@ package com.example.weatherwide.TodayForecastWeather;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -24,17 +21,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.weatherwide.CurrentAndForcastWeather.CurrentAndForecastWeatherDataLoader;
-import com.example.weatherwide.QueryUtilsMain;
 import com.example.weatherwide.R;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.net.URL;
 import java.util.ArrayList;
 
 public class TodayForecastFragment extends Fragment implements LoaderManager.LoaderCallbacks<ArrayList<TodayForecastWeatherData>>{

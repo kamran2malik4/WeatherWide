@@ -2,10 +2,7 @@ package com.example.weatherwide.CurrentAndForcastWeather;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -24,14 +21,8 @@ import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.weatherwide.QueryUtilsMain;
 import com.example.weatherwide.R;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.net.URL;
 import java.util.ArrayList;
 
 public class CurrentAndForecastFragment extends Fragment implements LoaderManager.LoaderCallbacks<ArrayList<CurrentAndForecastWeatherData>> {
